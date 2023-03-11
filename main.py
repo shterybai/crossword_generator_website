@@ -1,11 +1,14 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route("/fyp")
+@app.route("/fyp", methods=["POST", "GET"])
 def home():
-    return render_template("index.html")
+    if request.method == "POST":
+
+    else:
+        return render_template("index.html")
 
 
 @app.route("/")
