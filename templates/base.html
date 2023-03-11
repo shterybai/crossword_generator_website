@@ -11,19 +11,23 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(60, 160, 90)">
-        <div class="container-fluid">
-            <ul class="navbar-nav" style="display: flex; align-items: center;">
-                <li class="nav-item">
-                    <a class="navbar-brand" style="display: flex; align-items: center;" href="">
-                        <img src="{{ url_for('static', filename='logo.png') }}" style="width: 128px; margin: 12px; -webkit-filter: drop-shadow(5px 5px 5px #222);filter: drop-shadow(5px 5px 5px #222);" alt="WordsCrossed logo">
-                    </a>
-                </li>
-                <li>
-                    <a class="navbar-brand" style="display: flex; align-items: center; text-shadow: 4px 4px 16px #000000;" href="">
-                        <h1 style="font-size: 84px">WordsCrossed</h1>
-                    </a>
-                </li>
-            </ul>
+        <div class="container-fluid" style="display: flex; justify-content: center;">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="navbar-nav" style="display: flex; align-items: center;">
+                        <li class="nav-item">
+                            <a class="navbar-brand" style="display: flex; align-items: center;" href="">
+                                <img src="{{ url_for('static', filename='logo.png') }}" style="width: 128px; margin: 12px; -webkit-filter: drop-shadow(5px 5px 5px #222);filter: drop-shadow(5px 5px 5px #222);" alt="WordsCrossed logo">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand" style="display: flex; align-items: center; text-shadow: 4px 4px 16px #000000;" href="">
+                                <h1 style="font-size: 64px">WordsCrossed</h1>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
     {% block content %}
