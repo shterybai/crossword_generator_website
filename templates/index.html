@@ -1,24 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-md-6 offset-md-3" style="padding-top: 32px">
+<div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 32px">
     <h1 class="text-center" style="font-size: 4rem; padding-bottom: 12px">Create your own crossword in seconds</h1>
     <p class="text-center" style="font-size: 1.5rem; color: rgb(120, 120, 120)">To create a crossword with WordsCrossed, first think of a theme you want for your crossword. Then, type in three particular words that might fit your theme. When you're finished adding words, simply click the "Generate" button, and WordsCrossed will do the rest.</p>
 </div>
 
-<div class="col-md-6 offset-md-3" style="padding-top: 32px">
+<div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 32px">
     <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Start Adding Words!</h1>
-</div>
-<div class="col-md-6 offset-md-3">
     <form action="#" method="post">
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word1" class="form-control text-center" placeholder="Add a word..." aria-label="Add a word..." aria-describedby="inputGroup-sizing-sm">
+            <input type="text" name="word1" class="form-control text-center" placeholder="Add a word..." aria-label="Add a word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
         </div>
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word2" class="form-control text-center" placeholder="Add another word..." aria-label="Add another word..." aria-describedby="inputGroup-sizing-sm">
+            <input type="text" name="word2" class="form-control text-center" placeholder="Add another word..." aria-label="Add another word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
         </div>
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word3" class="form-control text-center" placeholder="Add a final word..." aria-label="Add a final word..." aria-describedby="inputGroup-sizing-sm">
+            <input type="text" name="word3" class="form-control text-center" placeholder="Add a final word..." aria-label="Add a final word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
         </div>
         <div class="col-md-12 text-center" style="padding-top: 12px">
             <button type="submit" class="btn btn-outline-success" style="width: 30%;">Generate Crossword</button>
