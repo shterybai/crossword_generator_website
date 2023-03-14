@@ -16,7 +16,7 @@
     <div class="container-fluid" style="background-color: rgb(60, 160, 90)">
         <div class="animate__animated animate__fadeIn" style="display: flex; justify-content: center;">
             <a class="navbar-brand" style="display: flex; align-items: center; margin: 18px; margin-left: -18px" href="">
-                <img src="{{ url_for('static', filename='logo.png') }}" style="width: 128px; margin: 12px; -webkit-filter: drop-shadow(5px 5px 5px #222);filter: drop-shadow(5px 5px 5px #222);" alt="WordsCrossed logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" style="width: 128px; margin: 12px; -webkit-filter: drop-shadow(5px 5px 5px #222);filter: drop-shadow(5px 5px 5px #222);" alt="WordsCrossed logo">
             </a>
             <div>
                 <div style="margin-top: 1rem">
@@ -36,6 +36,9 @@
     {% block content %}
     {% endblock %}
 
+    {% block crossword %}
+    {% endblock %}
+
     <footer class="text-center animate__animated animate__fadeIn" style="background-color: rgb(60, 160, 90); padding: 32px; margin-top: 32px">
         <h6 style="color: whitesmoke;">Site created by: Andrew Kennan</h6>
     </footer>
@@ -45,8 +48,9 @@
 
     <!--Animate.css-->
     <script src="js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
+<!--    <script>-->
+<!--        new WOW().init();-->
+<!--    </script>-->
+<!--    <script src="{{ url_for('static', filename='js/crossword.js') }}"></script>-->
 </body>
 </html>
