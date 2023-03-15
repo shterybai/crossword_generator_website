@@ -1,0 +1,10 @@
+/*.custom_square {*/
+/*    width: 100px; !* Set width to desired value *!*/
+/*}*/
+
+/*.custom_square:after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    padding-top: 25%;*/
+/*    padding-bottom: 25%; !* Set padding-bottom to same value as width to make a square *!*/
+/*}*/
