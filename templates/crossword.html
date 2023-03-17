@@ -5,11 +5,126 @@
     <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Your Crossword:</h1>
     <div id="grid">
         <table class="table" style="border-collapse: collapse">
+            {% set grid1 = True %}
+            {% set grid2 = True %}
+            {% set grid3 = True %}
+            {% set grid4 = True %}
+            {% set grid5 = True %}
+            {% set grid6 = True %}
+            {% set grid7 = True %}
+            {% set grid8 = True %}
+            {% set grid9 = True %}
+            {% set grid10 = True %}
+            {% set grid11 = True %}
+            {% set grid12 = True %}
+            {% set grid13 = True %}
+            {% set grid14 = True %}
+            {% set grid15 = True %}
+            {% set grid16 = True %}
             <tbody>
                 {% for row in crossword['crossword'] %}
                 <tr>
                     {% for letter in row %}
+                    {% if row == crossword['crossword'][0] and letter == row[1] and grid1 %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">1</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        <p>{{ grid1 }}</p>
+                    </td>
+                    {% set grid1 = False %}
+                    {% elif row == crossword['crossword'][0] and letter == row[3] and grid2 %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">2</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid2 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][0] and letter == row[5] and grid3 %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">3</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid3 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][0] and letter == row[7] and grid4 %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">4</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid4 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][0] and letter == row[9] and grid5 %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">5</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid5 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][1] and letter == row[0] and grid6 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">6</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid6 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][1] and letter == row[5] and grid7 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">7</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid7 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][3] and letter == row[1] and grid8 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">8</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid8 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][5] and letter == row[0] and grid9 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">9</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid9 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][5] and letter == row[1] and grid10 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">10</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid10 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][5] and letter == row[7] and grid11 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">11</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid11 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][7] and letter == row[0] and grid12 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">12</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid12 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][7] and letter == row[3] and grid13 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">13</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid13 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][5] and letter == row[9] and grid14 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">14</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid14 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][9] and letter == row[0] and grid15 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">15</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid15 = False %}
+                    </td>
+                    {% elif row == crossword['crossword'][9] and letter == row[7] and grid16 == True %}
+                    <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
+                        <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">16</p>
+                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
+                        {% set grid16 = False %}
+                    </td>
+                    {% else %}
                     <td{% if '#' in letter %} class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black; background-color: black; color: black;" {% else %} class="text-center" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;" {% endif %}><b>{{ letter }}</b></td>
+                    {% endif %}
                     {% endfor %}
                 </tr>
                 {% endfor %}
