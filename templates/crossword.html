@@ -8,122 +8,92 @@
             <tbody>
                 {% for row in crossword['crossword'] %}
                 <tr>
-                    {% set grid1_namespace = namespace(grid1=True) %}
-                    {% set grid2_namespace = namespace(grid2=True) %}
-                    {% set grid3_namespace = namespace(grid3=True) %}
-                    {% set grid4_namespace = namespace(grid4=True) %}
-                    {% set grid5_namespace = namespace(grid5=True) %}
-                    {% set grid6_namespace = namespace(grid6=True) %}
-                    {% set grid7_namespace = namespace(grid7=True) %}
-                    {% set grid8_namespace = namespace(grid8=True) %}
-                    {% set grid9_namespace = namespace(grid9=True) %}
-                    {% set grid10_namespace = namespace(grid10=True) %}
-                    {% set grid11_namespace = namespace(grid11=True) %}
-                    {% set grid12_namespace = namespace(grid12=True) %}
-                    {% set grid13_namespace = namespace(grid13=True) %}
-                    {% set grid14_namespace = namespace(grid14=True) %}
-                    {% set grid15_namespace = namespace(grid15=True) %}
-                    {% set grid16_namespace = namespace(grid16=True) %}
+                    {% set count_namespace = namespace(count=0) %}
                     {% for letter in row %}
-                    {% if row == crossword['crossword'][0] and letter == row[1] and grid1_namespace.grid1 %}
+                    {% if row == crossword['crossword'][0] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">1</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid1_namespace.grid1 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][0] and letter == row[3] and grid2_namespace.grid2 %}
+                    {% elif row == crossword['crossword'][0] and letter == row[3] and count_namespace.count == 3 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">2</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid2_namespace.grid2 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][0] and letter == row[5] and grid3_namespace.grid3 %}
+                    {% elif row == crossword['crossword'][0] and letter == row[5] and count_namespace.count == 5 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">3</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid3_namespace.grid3 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][0] and letter == row[7] and grid4_namespace.grid4 %}
+                    {% elif row == crossword['crossword'][0] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">4</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid4_namespace.grid4 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][0] and letter == row[9] and grid5_namespace.grid5 %}
+                    {% elif row == crossword['crossword'][0] and letter == row[9] and count_namespace.count == 9 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">5</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid5_namespace.grid5 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][1] and letter == row[0] and grid6_namespace.grid6 == True %}
+                    {% elif row == crossword['crossword'][1] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">6</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid6_namespace.grid6 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][1] and letter == row[5] and grid7_namespace.grid7 == True %}
+                    {% elif row == crossword['crossword'][1] and letter == row[5] and count_namespace.count == 5 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">7</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid7_namespace.grid7 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][3] and letter == row[1] and grid8_namespace.grid8 == True %}
+                    {% elif row == crossword['crossword'][3] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">8</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid8_namespace.grid8 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][5] and letter == row[0] and grid9_namespace.grid9 == True %}
+                    {% elif row == crossword['crossword'][5] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">9</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid9_namespace.grid9 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][5] and letter == row[1] and grid10_namespace.grid10 == True %}
+                    {% elif row == crossword['crossword'][5] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">10</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid10_namespace.grid10 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][5] and letter == row[7] and grid11_namespace.grid11 == True %}
+                    {% elif row == crossword['crossword'][5] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">11</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid11_namespace.grid11 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][7] and letter == row[0] and grid12_namespace.grid12 == True %}
+                    {% elif row == crossword['crossword'][7] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">12</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid12_namespace.grid12 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][7] and letter == row[3] and grid13_namespace.grid13 == True %}
+                    {% elif row == crossword['crossword'][7] and letter == row[3] and count_namespace.count == 3 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">13</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid13_namespace.grid13 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][7] and letter == row[9] and grid14_namespace.grid14 == True %}
+                    {% elif row == crossword['crossword'][7] and letter == row[9] and count_namespace.count == 9 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">14</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid14_namespace.grid14 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][9] and letter == row[0] and grid15_namespace.grid15 == True %}
+                    {% elif row == crossword['crossword'][9] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">15</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid15_namespace.grid15 = False %}
                     </td>
-                    {% elif row == crossword['crossword'][9] and letter == row[7] and grid16_namespace.grid16 == True %}
+                    {% elif row == crossword['crossword'][9] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">16</p>
                         <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
-                        {% set grid16_namespace.grid16 = False %}
                     </td>
                     {% else %}
                     <td{% if '#' in letter %} class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black; background-color: black; color: black;" {% else %} class="text-center" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;" {% endif %}><b>{{ letter }}</b></td>
                     {% endif %}
+                    {% set count_namespace.count = count_namespace.count + 1 %}
                     {% endfor %}
                 </tr>
                 {% endfor %}
@@ -131,8 +101,8 @@
         </table>
     </div>
     <div id="clues" class="row">
-        <div class="col-md-6 animate__animated animate__fadeInLeft" style="margin-top: 32px; border-left: 1px solid rgb(200, 200, 200); border-right: 1px solid rgb(200, 200, 200);">
-            <h5>Across:</h5>
+        <div class="col-md-6 animate__animated animate__fadeInLeft" style="margin-top: 24px; border-left: 1px solid rgb(200, 200, 200); border-right: 1px solid rgb(200, 200, 200);">
+            <h4>Across:</h4>
             <ul id="across_clues" style="list-style-type: none;">
                 {% for clue in crossword['words'] %}
                 {% if clue.orientation == "across" %}
@@ -142,8 +112,8 @@
             </ul>
         </div>
         <br>
-        <div class="col-md-6 animate__animated animate__fadeInRight" style="margin-top: 32px;  border-right: 1px solid rgb(200, 200, 200);">
-            <h5>Down:</h5>
+        <div class="col-md-6 animate__animated animate__fadeInRight" style="margin-top: 24px;  border-right: 1px solid rgb(200, 200, 200);">
+            <h4>Down:</h4>
             <ul id="down_clues" style="list-style-type: none;">
                 {% for clue in crossword['words'] %}
                 {% if clue.orientation == "down" %}

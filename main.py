@@ -17,7 +17,7 @@ def home():
         # return combined_words
 
         # Step 5: make a GET request to the external API using the combined string
-        response = requests.get(f'https://fcc0-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+        response = requests.get(f'https://1704-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
 
         print(response.json())
 
