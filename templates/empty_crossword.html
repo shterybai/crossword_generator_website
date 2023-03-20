@@ -1,7 +1,7 @@
-{% extends "index.html" %}
+{% extends "head.html" %}
 
-{% block crossword %}
-<div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 32px">
+{% block intro %}
+<div class="col-md-6 offset-md-3" style="padding-top: 32px">
     <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Your Crossword:</h1>
     <div id="grid">
         <table class="table" style="border-collapse: collapse">
@@ -13,85 +13,69 @@
                     {% if row == crossword['crossword'][0] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">1</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][0] and letter == row[3] and count_namespace.count == 3 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">2</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][0] and letter == row[5] and count_namespace.count == 5 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">3</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][0] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">4</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][0] and letter == row[9] and count_namespace.count == 9 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">5</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][1] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">6</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][1] and letter == row[5] and count_namespace.count == 5 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">7</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][3] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">8</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][5] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">9</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][5] and letter == row[1] and count_namespace.count == 1 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">10</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][5] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">11</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][7] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">12</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][7] and letter == row[3] and count_namespace.count == 3 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">13</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][7] and letter == row[9] and count_namespace.count == 9 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">14</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][9] and letter == row[0] and count_namespace.count == 0 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">15</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% elif row == crossword['crossword'][9] and letter == row[7] and count_namespace.count == 7 %}
                     <td class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;">
                         <p style="position: fixed; font-size: 12px; margin-top: -6px; margin-left: -2px; margin-bottom: 0">16</p>
-                        <p style="margin-bottom: 0"><b>{{ letter }}</b></p>
                     </td>
                     {% else %}
-                    <td{% if '#' in letter %} class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black; background-color: black; color: black;" {% else %} class="text-center" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black;" {% endif %}><b>{{ letter }}</b></td>
+                    <td{% if '#' in letter %} class="text-center custom_square" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black; background-color: black; color: black;" {% else %} class="text-center" style="font-size: 24px; width: 100px; height: 50px; border: 1px solid black; color: white;" {% endif %}><b>{{ letter }}</b></td>
                     {% endif %}
                     {% set count_namespace.count = count_namespace.count + 1 %}
                     {% endfor %}
@@ -123,6 +107,5 @@
             </ul>
         </div>
     </div>
-
 </div>
 {% endblock %}

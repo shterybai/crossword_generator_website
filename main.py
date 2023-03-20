@@ -17,12 +17,12 @@ def home():
         # return combined_words
 
         # Step 5: make a GET request to the external API using the combined string
-        response = requests.get(f'https://1704-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+        response = requests.get(f'https://7654-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
 
         print(response.json())
 
         # Step 6: return a response to the user
-        return render_template("crossword.html", crossword=response.json())
+        return render_template("display_crossword.html", crossword=response.json())
     else:
         return render_template("index.html")
 
