@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request, make_response
+from flask import Flask, redirect, url_for, render_template, request, make_response, session
 import pdfkit
 import requests
 # import wkhtmltopdf
@@ -8,8 +8,7 @@ import requests
 # pdfkit.from_url("http://google.com", "out.pdf", configuration=config)
 
 app = Flask(__name__)
-
-response = {}
+app.secret_key = "g7r76VFiUyigIy*^RgiOIipghvi7hvuYgU65VJGI&879&3£%AsDIjklb"
 
 @app.route("/fyp", methods=["POST", "GET"])
 def home():
@@ -24,8 +23,8 @@ def home():
         # return combined_words
 
         # Step 5: make a GET request to the external API using the combined string
-        global response
         response = requests.get(f'https://c2db-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+        session["api_data"] = response.json()
 
         print(response.json())
 
@@ -37,6 +36,11 @@ def home():
 
 @app.route('/filled-crossword-pdf')
 def create_filled_pdf():
+    if "api_data" in session:
+        response = session["api_data"]
+    else:
+        return redirect(url_for("home"))
+
     # Render the Jinja template to a string
     rendered = render_template('filled_crossword.html', crossword=response)
 
@@ -54,6 +58,11 @@ def create_filled_pdf():
 
 @app.route('/empty-crossword-pdf')
 def create_empty_pdf():
+    if "api_data" in session:
+        response = session["api_data"]
+    else:
+        return redirect(url_for("home"))
+
     # Render the Jinja template to a string
     rendered = render_template('empty_crossword.html', crossword=response)
 
