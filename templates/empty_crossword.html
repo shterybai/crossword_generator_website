@@ -1,6 +1,19 @@
 {% extends "head.html" %}
 
 {% block intro %}
+<style>
+    #grid {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* The rule below is not implemented in browsers yet */
+    -o-user-select: none;
+
+    /* The rule below is implemented in most browsers by now */
+    user-select: none;
+}
+</style>
 <div class="col-md-6 offset-md-3" style="padding-top: 32px">
     <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Your Crossword:</h1>
     <div id="grid">

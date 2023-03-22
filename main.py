@@ -1,8 +1,15 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, make_response
+import pdfkit
 import requests
+# import wkhtmltopdf
+
+# path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+# config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+# pdfkit.from_url("http://google.com", "out.pdf", configuration=config)
 
 app = Flask(__name__)
 
+response = {}
 
 @app.route("/fyp", methods=["POST", "GET"])
 def home():
@@ -17,7 +24,8 @@ def home():
         # return combined_words
 
         # Step 5: make a GET request to the external API using the combined string
-        response = requests.get(f'https://7654-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+        global response
+        response = requests.get(f'https://c2db-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
 
         print(response.json())
 
@@ -25,6 +33,40 @@ def home():
         return render_template("display_crossword.html", crossword=response.json())
     else:
         return render_template("index.html")
+
+
+@app.route('/filled-crossword-pdf')
+def create_filled_pdf():
+    # Render the Jinja template to a string
+    rendered = render_template('filled_crossword.html', crossword=response)
+
+    # Convert the rendered HTML to a PDF
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    pdf = pdfkit.from_string(rendered, False, configuration=config, options={"enable-local-file-access": ""})
+
+    # Create a response object with the PDF as the content
+    pdf_response = make_response(pdf)
+    pdf_response.headers['Content-Type'] = 'application/pdf'
+    pdf_response.headers['Content-Disposition'] = 'attachment; filename=filled_crossword.pdf'
+    return pdf_response
+
+
+@app.route('/empty-crossword-pdf')
+def create_empty_pdf():
+    # Render the Jinja template to a string
+    rendered = render_template('empty_crossword.html', crossword=response)
+
+    # Convert the rendered HTML to a PDF
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    pdf = pdfkit.from_string(rendered, False, configuration=config, options={"enable-local-file-access": ""})
+
+    # Create a response object with the PDF as the content
+    pdf_response = make_response(pdf)
+    pdf_response.headers['Content-Type'] = 'application/pdf'
+    pdf_response.headers['Content-Disposition'] = 'attachment; filename=empty_crossword.pdf'
+    return pdf_response
 
 
 # @app.route("/crossword_request", methods=["POST", "GET"])
