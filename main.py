@@ -1,7 +1,8 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, session
 import requests
 
 app = Flask(__name__)
+app.secret_key = "g7r76VFiUyigIy*^RgiOIipghvi7hvuYgU65VJGI&879&3£%AsDIjklb"
 
 
 @app.route("/fyp", methods=["POST", "GET"])
@@ -18,13 +19,34 @@ def home():
 
         # Step 5: make a GET request to the external API using the combined string
         response = requests.get(f'https://d1cd-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+        session["api_data"] = response.json()
 
         print(response.json())
 
         # Step 6: return a response to the user
-        return render_template("empty_crossword.html", crossword=response.json())
+        return render_template("crossword.html", crossword=response.json())
     else:
         return render_template("index.html")
+
+
+@app.route('/filled_crossword')
+def filled_crossword():
+    if "api_data" in session:
+        response = session["api_data"]
+    else:
+        return redirect(url_for("home"))
+
+    return render_template('filled_crossword.html', crossword=response)
+
+
+@app.route('/empty_crossword')
+def empty_crossword():
+    if "api_data" in session:
+        response = session["api_data"]
+    else:
+        return redirect(url_for("home"))
+
+    return render_template('empty_crossword.html', crossword=response)
 
 
 # @app.route("/crossword_request", methods=["POST", "GET"])

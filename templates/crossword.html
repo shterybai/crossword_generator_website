@@ -130,10 +130,14 @@
     <p class="text-center" style="font-size: 1.25rem; color: rgb(120, 120, 120)">If you want to save your crossword, you can view it on a standalone page, either filled with letters or unfilled, and then right-click the page and hit "print". To do this, simply click either button below to view and print your crossword.</p>
     <div class="row">
         <div class="col-md-6 text-center" style="padding-top: 12px">
-            <button id="create-filled-crossword-button" class="btn btn-outline-success" style="float: right;">Print Filled Crossword</button>
+            <form action="/filled_crossword" target="_blank">
+                <button id="create-filled-crossword-button" class="btn btn-outline-success" style="float: right;">Print Filled Crossword</button>
+            </form>
         </div>
         <div class="col-md-6 text-center" style="padding-top: 12px">
-            <button id="create-empty-crossword-button" class="btn btn-outline-success" style="float: left;">Print Empty Crossword</button>
+            <form action="/empty_crossword" target="_blank">
+                <button id="create-empty-crossword-button" class="btn btn-outline-success" style="float: left;">Print Empty Crossword</button>
+            </form>
         </div>
     </div>
 </div>
