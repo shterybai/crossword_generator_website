@@ -8,19 +8,61 @@
 
 <div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 32px">
     <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Start Adding Words!</h1>
-    <form action="/fyp" method="post">
+    <form id="WordForm" action="/fyp" method="post" autocomplete="off">
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word1" class="form-control text-center" placeholder="Add a word..." aria-label="Add a word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
+            <input type="text" id="word1" name="word1" class="form-control text-center" placeholder="Add a word..." aria-label="Add a word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)" required>
+            <div class="invalid-feedback">
+                Please insert a valid word.
+            </div>
         </div>
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word2" class="form-control text-center" placeholder="Add another word..." aria-label="Add another word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
+            <input type="text" id="word2" name="word2" class="form-control text-center" placeholder="Add another word..." aria-label="Add another word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)" required>
+            <div class="invalid-feedback">
+                Please insert a valid word.
+            </div>
         </div>
         <div class="input-group input-group-lg" style="padding-bottom: 12px">
-            <input type="text" name="word3" class="form-control text-center" placeholder="Add a final word..." aria-label="Add a final word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)">
+            <input type="text" id="word3" name="word3" class="form-control text-center" placeholder="Add a final word..." aria-label="Add a final word..." aria-describedby="inputGroup-sizing-sm" style="background-color: rgb(200, 245, 200)" required>
+            <div class="invalid-feedback">
+                Please insert a valid word.
+            </div>
         </div>
         <div class="col-md-12 text-center" style="padding-top: 12px">
-            <button type="submit" class="btn btn-outline-success" style="width: 30%;">Generate Crossword</button>
+            <button type="submit" id="submitWords" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoadingModal" style="width: 30%;" disabled>Generate Crossword</button>
         </div>
     </form>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="LoadingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="background-color: rgb(60, 160, 90); color: whitesmoke">
+                <h5 class="modal-title" id="exampleModalLabel">Generating Crossword</h5>
+            </div>
+            <div class="modal-body text-center">
+                <p>Please wait...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const word1 = document.getElementById("word1");
+    const word2 = document.getElementById("word2");
+    const word3 = document.getElementById("word3");
+    const submitWords = document.getElementById("submitWords");
+
+    word1.addEventListener("input", checkInputs);
+    word2.addEventListener("input", checkInputs);
+    word3.addEventListener("input", checkInputs);
+
+    function checkInputs() {
+        if (word1.value && word2.value && word3.value) {
+            submitWords.disabled = false;
+        } else {
+            submitWords.disabled = true;
+        }
+    }
+</script>
 {% endblock %}
