@@ -22,7 +22,7 @@ def home():
         print(response.json())
 
         # Step 6: return a response to the user
-        return render_template("crossword.html", crossword=response.json())
+        return render_template("empty_crossword.html", crossword=response.json())
     else:
         return render_template("index.html")
 

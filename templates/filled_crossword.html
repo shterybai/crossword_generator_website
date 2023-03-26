@@ -1,8 +1,7 @@
-{% extends "index.html" %}
+{% extends "head.html" %}
 
-{% block crossword %}
+{% block intro %}
 <div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 32px">
-    <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Your Crossword:</h1>
     <div id="grid">
         <table class="table" style="border-collapse: collapse">
             <tbody>
@@ -121,19 +120,6 @@
                 {% endif %}
                 {% endfor %}
             </ul>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-6 offset-md-3 animate__animated animate__fadeInUp" style="padding-top: 48px">
-    <h1 class="text-center" style="font-size: 3rem; padding-bottom: 12px">Print Your Crossword</h1>
-    <p class="text-center" style="font-size: 1.25rem; color: rgb(120, 120, 120)">If you want to save your crossword, you can view it on a standalone page, either filled with letters or unfilled, and then right-click the page and hit "print". To do this, simply click either button below to view and print your crossword.</p>
-    <div class="row">
-        <div class="col-md-6 text-center" style="padding-top: 12px">
-            <button id="create-filled-crossword-button" class="btn btn-outline-success" style="float: right;">Print Filled Crossword</button>
-        </div>
-        <div class="col-md-6 text-center" style="padding-top: 12px">
-            <button id="create-empty-crossword-button" class="btn btn-outline-success" style="float: left;">Print Empty Crossword</button>
         </div>
     </div>
 </div>
