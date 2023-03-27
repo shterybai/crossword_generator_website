@@ -1,8 +1,10 @@
 from flask import Flask, redirect, url_for, render_template, request, session
+from datetime import timedelta
 import requests
 
 app = Flask(__name__)
 app.secret_key = "g7r76VFiUyigIy*^RgiOIipghvi7hvuYgU65VJGI&879&3£%AsDIjklb"
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
 
 @app.route("/fyp", methods=["POST", "GET"])
@@ -25,6 +27,9 @@ def home():
 
         # Step 6: return a response to the user
         return render_template("crossword.html", crossword=response.json())
+    elif "api_data" in session:
+        response = session["api_data"]
+        return render_template("crossword.html", crossword=response)
     else:
         return render_template("index.html")
 
