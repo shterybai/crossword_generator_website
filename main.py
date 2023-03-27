@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 app.secret_key = "g7r76VFiUyigIy*^RgiOIipghvi7hvuYgU65VJGI&879&3£%AsDIjklb"
-app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(minutes=10)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=10)
 
 
 @app.route("/fyp", methods=["POST", "GET"])
