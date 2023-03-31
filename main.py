@@ -1,5 +1,4 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-import datetime
 from datetime import timedelta
 import json
 import requests
@@ -19,7 +18,7 @@ def home():
 
             combined_words = f"{word1},{word2},{word3}"
 
-            response = requests.get(f'https://667d-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
+            response = requests.get(f'https://02bb-109-255-231-194.eu.ngrok.io/request?user_words={combined_words}')
             session["api_data"] = response.json()
 
             print(response.json())
